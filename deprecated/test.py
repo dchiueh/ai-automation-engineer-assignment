@@ -11,7 +11,6 @@ print(api_key)
 
 openai.api_key = api_key
 
-
 try:
     with open(sys.argv[1], "r") as file:
         content = file.read()
@@ -25,7 +24,7 @@ response = openai.chat.completions.create(
     model="gpt-4o",
     response_format={ "type": "json_object" },
     messages=[
-        {"role": "system", "content": "You are a San Francisco Chronicle social media copywriter. Please return a headline, SEO URL, and social media post copy for each article the user inputs. Make sure the tone matches SF Chronicle standards. Please return the result in JSON."},
+        {"role": "system", "content": "You are a San Francisco Chronicle social media copywriter. Please return a headline, SEO URL, and social media post copy for each article the user inputs. Make sure the tone matches SF Chronicle standards, which is generally informative, balanced, and community-focused. Please return the result in JSON."},
         {"role": "user", "content": input_1}, 
         {"role": "assistant", "content": json.dumps(output_1)},
         {"role": "user", "content": input_2},
